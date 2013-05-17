@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.label :contact_type_id, "Tipo" %>
+  <%= f.collection_select(:contact_type_id, ContactType.all, :id, :name) %>
+  <%= f.label :value, "valore" %>
+  <%= f.text_field :value %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", "#", class: "remove_fields" %>
+</fieldset>

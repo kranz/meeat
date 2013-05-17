@@ -1,4 +1,37 @@
-Seeat::Application.routes.draw do
+Meeat::Application.routes.draw do
+
+  resources :regions
+
+
+
+
+  resources :conferences
+
+
+  resources :reservations
+
+
+  resources :restaurants do
+    resources :contacts
+  end
+
+
+  resources :time_zones
+
+
+  resources :contact_types
+
+
+  resources :countries
+
+
+  authenticated :user do
+    root :to => 'home#index'
+  end
+  root :to => "home#index"
+  devise_for :users
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

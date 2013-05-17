@@ -3,3 +3,9 @@
 
 en:
   hello: "Hello world"
+  newrecord: "New %{model}"
+  back: "Back"
+  helpers:
+    submit: 
+      create: "Create a new %{model}"
+      update: "Confirm changes to %{model}"

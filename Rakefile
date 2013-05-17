@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Seeat::Application.load_tasks
+Meeat::Application.load_tasks

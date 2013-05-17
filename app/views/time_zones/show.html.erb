@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @time_zone.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @time_zone.name %>
+</p>
+
+<p>
+  <b>Offset:</b>
+  <%= @time_zone.offset %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_zone_path(@time_zone) %> |
+<%= link_to 'Back', time_zones_path %>

@@ -1,0 +1,13 @@
+en:
+  restaurant:
+    title: "Restaurant"
+    name: "Name"
+    address: "Address"
+    city: "City"
+    state: "State"
+    zip: "ZIP"
+    country: "Country"
+    timezone: "Time Zone"
+    error:
+      saveerror: "prohibited this restaurant from being saved:"
+

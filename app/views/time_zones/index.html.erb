@@ -1,0 +1,27 @@
+<h1>Listing time_zones</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Offset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @time_zones.each do |time_zone| %>
+  <tr>
+    <td><%= time_zone.code %></td>
+    <td><%= time_zone.name %></td>
+    <td><%= time_zone.offset %></td>
+    <td><%= link_to 'Show', time_zone %></td>
+    <td><%= link_to 'Edit', edit_time_zone_path(time_zone) %></td>
+    <td><%= link_to 'Destroy', time_zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Time zone', new_time_zone_path %>
