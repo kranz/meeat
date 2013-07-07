@@ -1,0 +1,33 @@
+<h1>Listing time_slots</h1>
+
+<table>
+  <tr>
+    <th>Time table</th>
+    <th>Name</th>
+    <th>Slot position</th>
+    <th>Utc slot position</th>
+    <th>From</th>
+    <th>To</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @time_slots.each do |time_slot| %>
+  <tr>
+    <td><%= time_slot.time_table_id %></td>
+    <td><%= time_slot.name %></td>
+    <td><%= time_slot.position %></td>
+    <td><%= time_slot.UTC_position %></td>
+    <td><%= time_slot.from %></td>
+    <td><%= time_slot.to %></td>
+    <td><%= link_to 'Show', time_slot %></td>
+    <td><%= link_to 'Edit', edit_time_slot_path(time_slot) %></td>
+    <td><%= link_to 'Destroy', time_slot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Time slot', new_time_slot_path %>

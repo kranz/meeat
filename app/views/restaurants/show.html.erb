@@ -1,40 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @restaurant.name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @restaurant.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @restaurant.zip %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @restaurant.country_id %>
-</p>
-
-<p>
-  <b>Time zone:</b>
-  <%= @restaurant.time_zone_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<div class="row">
+  <div class="span3">
+    <p id="notice"><%= notice %></p>
+    
+    <address>
+      <strong><%= @restaurant.name %></strong><br>
+      <%= @restaurant.address %><br>
+      <%= @restaurant.zip %> <%= @restaurant.city %> <%= @restaurant.state %> (<%= @restaurant.country_id %>)<br>
+      <% @restaurant.contacts.each do |contact| %>
+        <abbr><%= contact.contact_type.name %></abbr> <%= contact.value   %><br />
+      <% end %>
+    </address>
+    
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+    <%= link_to 'Back', restaurants_path %>
+  </div>
+  <div class="span2">
+    <% @restaurant.time_tables.each do |table| %>
+      <%= link_to(table.description,edit_restaurant_time_table_path(@restaurant,table)) %><br />
+    <% end %>
+    <%= link_to 'Nuovo Orario', new_restaurant_time_table_url(@restaurant), :class => "btn btn-primary" %>
+  </div>
+  <div id="time_table">
+  </div>
+</div>

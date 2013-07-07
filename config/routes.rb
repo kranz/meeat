@@ -1,29 +1,19 @@
 Meeat::Application.routes.draw do
 
-  resources :regions
-
-
-
-
+  resources :closing_days
   resources :conferences
-
-
+  resources :contact_types
+  resources :countries
+  resources :regions
   resources :reservations
-
-
   resources :restaurants do
     resources :contacts
+    resources :time_tables
   end
-
-
+  resources :statuses
+  resources :time_slots
   resources :time_zones
-
-
-  resources :contact_types
-
-
-  resources :countries
-
+  resources :week_closings
 
   authenticated :user do
     root :to => 'home#index'

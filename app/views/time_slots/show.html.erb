@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time table:</b>
+  <%= @time_slot.time_table_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @time_slot.name %>
+</p>
+
+<p>
+  <b>Slot position:</b>
+  <%= @time_slot.position %>
+</p>
+
+<p>
+  <b>Utc slot position:</b>
+  <%= @time_slot.UTC_position %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @time_slot.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @time_slot.to %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_slot_path(@time_slot) %> |
+<%= link_to 'Back', time_slots_path %>

@@ -5,6 +5,11 @@ en:
   hello: "Hello world"
   newrecord: "New %{model}"
   back: "Back"
+  avail: "available"
+  blocked: "blocked"
+  bound: "bound"
+  reserved: "reserved"
+  cancelled: "cancelled"
   helpers:
     submit: 
       create: "Create a new %{model}"

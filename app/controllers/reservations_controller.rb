@@ -80,4 +80,10 @@ class ReservationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def create_unique_code
+     tmp = [('a'..'z'),('A'..'Z'),('0'..'9')].map{|i| i.to_a}.flatten
+     (0...5).map{ tmp[rand(tmp.length)] }.join
+  end
+
 end

@@ -10,34 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name, t("restaurant.name") %>
-    <%= f.text_field :name %>
+  <div class="controls">
+      <%= f.text_field :name, :class => "span5", :placeholder => t("restaurant.name") %>
   </div>
-  <div class="field">
-    <%= f.label :address, t("restaurant.address") %>
-    <%= f.text_field :address %>
+  <div class="controls">
+      <%= f.text_field :address, :class => "span5", :placeholder => t("restaurant.address") %>
   </div>
-  <div class="field">
-    <%= f.label :city, t("restaurant.city") %>
-    <%= f.text_field :city %>
+  <div class="controls controls-row">
+      <%= f.text_field :zip, :class => "span1", :placeholder => t("restaurant.zip") %>
+      <%= f.text_field :city, :class => "span3", :placeholder => t("restaurant.city") %>
+      <%= f.text_field :state, :class => "span1", :placeholder => t("restaurant.state")     %>
   </div>
-  <div class="field">
-    <%= f.label :state, t("restaurant.state") %>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip, t("restaurant.zip") %>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :country_id, t("restaurant.country") %>
-    <%= f.collection_select(:country_id, Country.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :time_zone_id, t("restaurant.timezone") %>
-    <%= f.number_field :time_zone_id %>
+  <div class="controls">
+    <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {:class => "span5"}) %>
   </div>
   <%= f.fields_for :contacts do |builder| %>
     <%= render 'contact_fields', f: builder %>

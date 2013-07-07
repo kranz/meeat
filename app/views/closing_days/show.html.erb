@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time table:</b>
+  <%= @closing_day.time_table_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @closing_day.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @closing_day.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_closing_day_path(@closing_day) %> |
+<%= link_to 'Back', closing_days_path %>

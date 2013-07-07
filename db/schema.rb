@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515165414) do
+ActiveRecord::Schema.define(:version => 20130520202943) do
+
+  create_table "closing_days", :force => true do |t|
+    t.integer  "time_table_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "conferences", :force => true do |t|
     t.datetime "date"
@@ -24,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130515165414) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "icon"
   end
 
   create_table "contacts", :force => true do |t|
@@ -57,8 +66,15 @@ ActiveRecord::Schema.define(:version => 20130515165414) do
     t.string   "code"
     t.integer  "conference_id"
     t.string   "confirmation"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "user_id"
+    t.integer  "status_id"
+    t.datetime "confirmation_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "duration"
+    t.integer  "slot"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -68,17 +84,36 @@ ActiveRecord::Schema.define(:version => 20130515165414) do
     t.string   "state"
     t.string   "zip"
     t.integer  "country_id"
-    t.integer  "time_zone_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  create_table "time_zones", :force => true do |t|
-    t.string   "code"
+  create_table "statuses", :force => true do |t|
     t.string   "name"
-    t.decimal  "offset",     :precision => 10, :scale => 0
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.string   "code"
+    t.integer  "order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "time_slots", :force => true do |t|
+    t.integer  "time_table_id"
+    t.string   "name"
+    t.integer  "position"
+    t.integer  "UTC_position"
+    t.time     "from"
+    t.time     "to"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "time_tables", :force => true do |t|
+    t.string   "description"
+    t.boolean  "dst"
+    t.integer  "restaurant_id"
+    t.string   "time_zone"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -95,9 +130,18 @@ ActiveRecord::Schema.define(:version => 20130515165414) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "locale"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "week_closings", :force => true do |t|
+    t.integer  "time_table_id"
+    t.integer  "weekday"
+    t.string   "type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

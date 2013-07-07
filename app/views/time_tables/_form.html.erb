@@ -1,0 +1,37 @@
+<%= form_for(@time_table, :url => restaurant_time_table_url(@restaurant,@time_table)) do |f| %>
+  <% if @time_table.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@time_table.errors.count, "error") %> prohibited this time_table from being saved:</h2>
+
+      <ul>
+      <% @time_table.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_zone, "Time Zone" %>
+    <%= time_zone_select("time_table", "time_zone", nil, :include_blank => true) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dst, "Daylight Savings Time" %>
+    <%= check_box("time_table", "dst" ) %>
+  </div>
+
+  <%= Time.now %><br/>
+  <%= Time.now.utc %><br/>
+  <%= Time.now.in_time_zone(@time_table.time_zone) %><br/>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

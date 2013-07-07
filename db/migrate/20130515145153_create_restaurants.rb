@@ -7,8 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.integer :country_id
-      t.integer :time_zone_id
-
+      
       t.timestamps
     end
   end

@@ -1,0 +1,16 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+it:
+  hello: "Ciao Mondo"
+  newrecord: "Nuovo %{model}"
+  back: "Indietro"
+  avail: "disponibile"
+  blocked: "bloccato"
+  bound: "fissato"
+  reserved: "prenotato"
+  cancelled: "annullato"
+  helpers:
+    submit: 
+      create: "Crea un nuovo %{model}"
+      update: "Conferma le modifiche a %{model}"

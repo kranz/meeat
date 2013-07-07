@@ -1,35 +1,29 @@
 <h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Country</th>
-    <th>Time zone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="table table-condensed table-bordered">
 <% @restaurants.each do |restaurant| %>
   <tr>
-    <td><%= restaurant.name %></td>
-    <td><%= restaurant.address %></td>
-    <td><%= restaurant.city %></td>
-    <td><%= restaurant.state %></td>
-    <td><%= restaurant.zip %></td>
-    <td><%= restaurant.country_id %></td>
-    <td><%= restaurant.time_zone_id %></td>
+    <td>
+      <address>
+        <strong><%= restaurant.name %></strong><br/>
+        <%= restaurant.address %><br/>
+        <%= restaurant.zip %> <%= restaurant.city %> <%= restaurant.state %> (<%= restaurant.country.code %>)
+      </address>
+    </td>
+    <td>
+      <% restaurant.contacts.each do |contact| %>
+        <%= contact.contact_type.name %>: <%= contact.value %><br/>
+      <% end %>
+    </td>
+
     <td><%= link_to 'Show', restaurant %></td>
     <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
     <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Orari', new_restaurant_time_table_path(restaurant) %></td>
+
   </tr>
 <% end %>
 </table>
 
-<br />
 
 <%= link_to 'New Restaurant', new_restaurant_path %>

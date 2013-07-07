@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Restaurant:</b>
+  <%= @time_table.restaurant_id %>
+</p>
+
+<p>
+  <b>Time Zone:</b>
+  <%= @time_table.time_zone %>
+</p>
+
+<%= link_to 'Edit', edit_time_table_path(@time_table) %> |
+<%= link_to 'Back', times_table_path %>

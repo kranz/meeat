@@ -1,4 +1,12 @@
 it:
   restaurant:
-    form:
-      address: "indirizzo"
+    title: "Ristorante"
+    name: "Nome"
+    address: "Indirizzo"
+    city: "Città"
+    state: "Provincia"
+    zip: "Cap"
+    country: "Nazione"
+    timezone: "Fuso orario"
+    error:
+      saveerror: "ha impedito di salvare il ristorante"

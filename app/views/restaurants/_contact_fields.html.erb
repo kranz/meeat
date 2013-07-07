@@ -1,8 +1,8 @@
 <fieldset>
-  <%= f.label :contact_type_id, "Tipo" %>
-  <%= f.collection_select(:contact_type_id, ContactType.all, :id, :name) %>
-  <%= f.label :value, "valore" %>
-  <%= f.text_field :value %>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", "#", class: "remove_fields" %>
+  <div class="controls controls-row">
+    <%= f.collection_select(:contact_type_id, ContactType.all, :id, :name, {}, {:class => "span2"}) %>
+    <%= f.text_field :value, :class =>"span2" %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to content_tag(:i,"", :class => "icon-trash"), "#", :class => "remove_fields span1" %>
+  </div>
 </fieldset>

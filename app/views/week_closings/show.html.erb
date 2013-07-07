@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time table:</b>
+  <%= @week_closing.time_table_id %>
+</p>
+
+<p>
+  <b>Weekday:</b>
+  <%= @week_closing.weekday %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @week_closing.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_week_closing_path(@week_closing) %> |
+<%= link_to 'Back', week_closings_path %>
